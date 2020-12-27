@@ -12,3 +12,8 @@ RUN su vscode -c "cabal update && cabal install idris"
 ENV PATH=/home/vscode/.cabal/bin:${PATH}
 
 RUN git clone https://github.com/idris-lang/Idris-dev.git  /home/vscode/src/idris-lang/Idris-dev
+
+RUN apt-get update && apt-get install -y software-properties-common
+RUN add-apt-repository ppa:alessandro-strada/ppa
+RUN apt-get install -y google-drive-ocamlfuse
+RUN mkdir /home/vscode/google-drive
